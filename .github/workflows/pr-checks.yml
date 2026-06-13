@@ -34,7 +34,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install flake8 pylint mypy
+          pip install flake8 pylint mypy ruff
 
       - name: Validate Python syntax
         run: python -m compileall . -q
@@ -44,6 +44,11 @@ jobs:
 
       - name: Test list themes
         run: python create_map_poster.py --list-themes
+
+      - name: Lint and Format with Ruff
+        run: |
+          ruff check .
+          ruff format --check .
 
       - name: Lint with flake8
         run: |
