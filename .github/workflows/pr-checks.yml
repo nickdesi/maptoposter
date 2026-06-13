@@ -6,6 +6,7 @@ on:
     types: [opened, synchronize, reopened]
 
 env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
   MAX_LINE_LENGTH: 160
 
 jobs:
